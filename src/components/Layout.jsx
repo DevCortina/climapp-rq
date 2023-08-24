@@ -9,7 +9,6 @@ function Layout() {
 
     const input = useRef(null);
     const [location, setLocation] = useState(null);
-    const back = () => window.location.reload(true);
     const query = useWeather(location);
     const search = (e) => {
         e.preventDefault();
@@ -25,7 +24,7 @@ function Layout() {
         {!query.isSuccess 
                 ? ( <BsCloudsFill  size={36} style={{ fill: 'white' }} />)
                 : ( <>
-                <a href="!#" onClick={back} className="text-white  p-4 "> <FaChevronRight />
+                <a href="/" className="text-white  p-4 "> <FaChevronRight />
                 </a></>)
                 }
           
@@ -47,7 +46,6 @@ function Layout() {
         </div>
         }
         <div>
-            {query.isFetching && <p className="text-6xl font-bold text-white">Cargando...</p>}
             {query.isError && <p className="text-white">No se encontro la ciudad, intente nuevamente.</p>}
         </div>
         {query.isSuccess && <Weather weather={query.data} /> }

@@ -16,14 +16,14 @@ export const Weather =  ({weather}) => {
             {weather.name}
           <sup className='rounded-full px-2 py-1 text-sm font-bold bg-white text-blue-300'>{weather.sys.country}</sup>
         </h1>
-        <div className="flex flex-row w-full justify-center mt-5 items-center h-full">
+        <div className="flex flex-row w-full justify-center mt-5 items-center">
           <div className="flex flex-row flex-between items-center">
           <img src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} width={180} height={180} alt={weather.weather[0].description} />
           </div>
           <div className='flex flex-col'>
           <h2 className='lato text-6xl font-bold text-white'>{Math.round(weather.main.temp)}°C</h2>
-          <p className='lato text-1xl font-bold text-white'>Sensación térmica: {Math.round(weather.main.feels_like)}</p>
-          <p className='lato text-1xl font-bold text-white'>min: 23°C | max: 35°C</p>
+          <p className='lato text-1xl font-bold text-white'>Sensación térmica: {Math.round(weather.main.feels_like)}°C</p>
+          <p className='lato text-1xl font-bold text-white'>min: {Math.round(weather.main.temp_min)}°C &nbsp;/&nbsp; max: {Math.round(weather.main.temp_max)}°C</p>
           </div>
           </div>
           <div className="flex items-center">
